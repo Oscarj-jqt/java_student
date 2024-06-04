@@ -57,7 +57,7 @@ public class Student {
                 tuitionBalance = tuitionBalance + costOfCourse;
             }
             else {
-                System.out.println("Break !");
+                System.out.println("Fin !");
                 break;
             }
         } while (1 != 0);
