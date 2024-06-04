@@ -8,7 +8,7 @@ public class Student {
     private String lastName;
     private int gradeYear;
     private String studentID;
-    private String courses = null;
+    private String courses;
     private int tuitionBalance;
     private static int costOfCourse = 600;
     private static int id = 1000;
@@ -32,8 +32,6 @@ public class Student {
         setStudentID();
 
 
-        System.out.println(firstName + " " + lastName + " " + gradeYear + "" + studentID);
-
 
     }
 
@@ -53,7 +51,7 @@ public class Student {
             Scanner in = new Scanner(System.in);
             String course = in.nextLine();
             if (!course.equals("Q")) {
-                courses = courses + "\n" + course;
+                courses = courses + "\n " + course;
                 tuitionBalance = tuitionBalance + costOfCourse;
             }
             else {
@@ -61,11 +59,31 @@ public class Student {
                 break;
             }
         } while (1 != 0);
-        System.out.println("Inscrit à :" + courses);
-        System.out.println("Frais de scolarité :" + tuitionBalance);
     }
 
     // Voir le solde
+    public void viewBalance() {
+        System.out.println("Votre solde est de: $" + tuitionBalance);
+    }
 
     // Payer les frais de scolarité
+    public void payTuition() {
+        viewBalance();
+        //On fait la méthode pour le système de paiement
+        // le prompt pour entrer la valeur du prix
+        System.out.print("Entrez votre paiement: $");
+        Scanner in = new Scanner(System.in);
+        int payment = in.nextInt();
+        tuitionBalance = tuitionBalance - payment;
+        System.out.println("Paiement confirmé de $ " + payment);
+        viewBalance();
+    }
+    // Montrer le statut
+    public String toString() {
+        return "Name: " + firstName + " " + lastName +
+                "\nGrade: " + gradeYear +
+                "\nid de l'étudiant :" + studentID +
+                "\nInscrit aux cours: " + courses +
+                "\nLe solde: $" + tuitionBalance;
+    }
 }
