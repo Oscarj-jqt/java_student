@@ -18,4 +18,3 @@ L'application comprend les fonctionnalités suivantes :
 
 -pour voir le statut de l'étudiant, on doit voir le nom, l'iD, les cours inscrit et le solde
 
-(aller dans student_bdd)
